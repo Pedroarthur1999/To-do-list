@@ -23,9 +23,11 @@ function criaTarefa(text){
     lista.appendChild(lis);
   //  lista.appendChild(btn2)
 }
-
-
   botao.addEventListener('click', (e)=>{
-           entrada.value.length>0?  criaTarefa(entrada.value): alert('tente novamente')  
-          
+           entrada.value.length>0?  criaTarefa(entrada.value): alert('tente novamente')           
+  })
+  entrada.addEventListener('keypress', function(e){
+
+            e.keyCode===13?criaTarefa(entrada.value):'';
+        
   })
