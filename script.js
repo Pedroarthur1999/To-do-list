@@ -8,26 +8,41 @@ function criarElemento(){
      return lis;
 
 }
-// function criarBotao(){
-     
-//       const botao = document.createElement('button', value="ola")
-//       return botao;
 
-// }
 
 function criaTarefa(text){
-     
-    const lis = criarElemento()    
-//    const btn2 = criarBotao()
-    lis.innerText = text
-    lista.appendChild(lis);
-  //  lista.appendChild(btn2)
+  
+  const lis = criarElemento()    
+  lis.innerText = text
+  lista.appendChild(lis)
+  lis.innerText += ' '
+  criaBotao(lis)
+  limpaInput()
+}
+function criaBotao(lis){
+   
+   const botao = document.createElement('button')
+   botao.innerText = "apagar"
+   botao.setAttribute('class', 'apagar')
+   lis.appendChild(botao)
+}
+
+function limpaInput(li){
+  entrada.value = ""    
+  entrada.focus()
 }
   botao.addEventListener('click', (e)=>{
-           entrada.value.length>0?  criaTarefa(entrada.value): alert('tente novamente')           
+    entrada.value.length>0?  criaTarefa(entrada.value): alert('tente novamente')           
   })
   entrada.addEventListener('keypress', function(e){
-
-            e.keyCode===13?criaTarefa(entrada.value):'';
-        
+    e.keyCode===13?criaTarefa(entrada.value):'';
   })
+  
+  document.addEventListener('click', function(e) {
+    const el = e.target;
+  
+    if (el.classList.contains('apagar')) {
+      el.parentElement.remove();
+    }
+  });
+  
