@@ -38,6 +38,12 @@ body{
     border-radius: .5rem;   
     cursor: pointer;
 }
+.li{
+    flex-wrap: wrap;
+    display: flex;
+    padding: 10px;
+}
+}
 .list{
     position: relative;
     left: 22pt;
